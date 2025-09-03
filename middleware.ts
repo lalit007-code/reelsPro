@@ -20,10 +20,16 @@ export default withAuth(
         }
 
         //public
-        if (pathname === "/" || pathname.startsWith("/api/videos")) {
+        if (
+          pathname === "/" ||
+          pathname.startsWith("/api/videos") ||
+          pathname.startsWith("/profile") ||
+          pathname.startsWith("/upload")
+        ) {
           return true;
         }
 
+        //all other require authentication
         return !!token;
       },
     },
